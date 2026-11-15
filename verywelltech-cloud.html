@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verywell Tech Co., Ltd. · Design, technology and innovation from Bangkok</title>
+<meta name="description" content="Verywell Tech Co., Ltd. is a Bangkok technology company working across design, business, innovation, technologies and sustainability.">
+<meta name="theme-color" content="#070b18">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23f4f6fb'/%3E%3Cstop offset='1' stop-color='%238e97ad'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%230b1226'/%3E%3Cpath d='M16 20l10 26 6-16 6 16 10-26' fill='none' stroke='url(%23g)' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --night-0:#04060f;--night-1:#070b18;--night-2:#0d1530;--night-3:#18224a;
+  --silver-0:#ffffff;--silver-1:#e9edf5;--silver-2:#c3cad8;--silver-3:#8e97ad;--silver-4:#5d667d;
+  --glass:rgba(255,255,255,.07);--glass-strong:rgba(255,255,255,.11);
+  --edge:rgba(255,255,255,.22);--edge-soft:rgba(255,255,255,.10);
+  --r-xl:34px;--r-lg:26px;--r-md:18px;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Inter","Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--night-0)}
+body{font-family:var(--font);color:var(--silver-1);line-height:1.6;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  background:var(--night-1)}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(195,202,216,.35);color:#fff}
+
+/* night sky */
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;background:radial-gradient(1200px 700px at 78% -8%,rgba(120,140,210,.28),transparent 60%),
+    radial-gradient(900px 600px at 6% 18%,rgba(70,90,170,.22),transparent 62%),
+    radial-gradient(1000px 800px at 50% 110%,rgba(150,160,200,.16),transparent 60%),
+    linear-gradient(180deg,var(--night-1) 0%,var(--night-2) 46%,var(--night-1) 100%)}
+.stars{position:absolute;inset:-50%;background-repeat:repeat}
+.stars.s1{background-image:
+  radial-gradient(1px 1px at 20px 30px,#fff 50%,transparent 51%),
+  radial-gradient(1px 1px at 140px 90px,rgba(255,255,255,.8) 50%,transparent 51%),
+  radial-gradient(1.2px 1.2px at 260px 170px,#fff 50%,transparent 51%),
+  radial-gradient(1px 1px at 330px 40px,rgba(255,255,255,.7) 50%,transparent 51%),
+  radial-gradient(1px 1px at 90px 250px,rgba(255,255,255,.75) 50%,transparent 51%),
+  radial-gradient(1.4px 1.4px at 380px 300px,#fff 50%,transparent 51%);
+  background-size:420px 340px;opacity:.55}
+.stars.s2{background-image:
+  radial-gradient(1px 1px at 60px 120px,rgba(220,228,255,.9) 50%,transparent 51%),
+  radial-gradient(1.6px 1.6px at 210px 60px,#fff 50%,transparent 51%),
+  radial-gradient(1px 1px at 300px 220px,rgba(255,255,255,.6) 50%,transparent 51%),
+  radial-gradient(1px 1px at 520px 160px,rgba(255,255,255,.7) 50%,transparent 51%);
+  background-size:640px 420px;opacity:.45}
+.aurora{position:absolute;width:70vmax;height:70vmax;border-radius:50%;filter:blur(90px);opacity:.28}
+.aurora.a1{background:radial-gradient(circle,#6f7fd0,transparent 65%);top:-30vmax;right:-20vmax}
+.aurora.a2{background:radial-gradient(circle,#b9c2dc,transparent 65%);bottom:-40vmax;left:-25vmax;opacity:.16}
+@media (prefers-reduced-motion:no-preference){
+  .stars.s1{animation:drift 180s linear infinite}
+  .stars.s2{animation:drift 260s linear infinite reverse}
+  .twinkle{animation:tw 4.5s ease-in-out infinite}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+}
+@keyframes drift{to{transform:translate3d(-420px,-170px,0)}}
+@keyframes tw{0%,100%{opacity:.55}50%{opacity:.85}}
+
+/* liquid glass */
+.glass{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.05) 38%,rgba(255,255,255,.03) 62%,rgba(255,255,255,.08) 100%);
+  -webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);
+  border:1px solid var(--edge-soft);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(255,255,255,.06),inset 0 0 30px rgba(255,255,255,.03),0 24px 60px -24px rgba(0,0,0,.65),0 2px 10px rgba(0,0,0,.25);
+  isolation:isolate}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.06) 30%,rgba(255,255,255,0) 55%,rgba(255,255,255,.18) 85%,rgba(255,255,255,.4));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+
+.silver{background:linear-gradient(180deg,#ffffff 0%,#e4e8f1 38%,#a9b1c3 72%,#d9dee8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.wrap{position:relative;z-index:1;width:min(1160px,calc(100% - 40px));margin:0 auto}
+
+/* nav */
+header{position:sticky;top:14px;z-index:10;margin-top:14px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 12px 10px 18px;border-radius:999px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.02em;font-size:15px}
+.brand .mark{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(160deg,#1a2550,#0b1226);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 0 0 1px rgba(255,255,255,.12)}
+.brand .mark svg{width:20px;height:20px}
+.nav ul{list-style:none;display:flex;gap:4px}
+.nav ul a{display:block;padding:8px 14px;border-radius:999px;font-size:14px;color:var(--silver-2);transition:background .25s,color .25s}
+.nav ul a:hover{background:rgba(255,255,255,.08);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;font-weight:600;font-size:14.5px;letter-spacing:.01em;transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;border:0;font-family:inherit}
+.btn:hover{transform:translateY(-1px)}
+.btn-silver{color:#0b1226;background:linear-gradient(180deg,#ffffff 0%,#dfe4ee 55%,#b9c1d2 100%);box-shadow:inset 0 1px 0 #fff,inset 0 -2px 6px rgba(80,90,120,.25),0 8px 24px -8px rgba(200,210,235,.45)}
+.btn-glass{color:#fff;background:rgba(255,255,255,.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 0 0 1px rgba(255,255,255,.14)}
+.btn-glass:hover{background:rgba(255,255,255,.13)}
+
+/* hero */
+.hero{padding:120px 0 90px;display:grid;gap:34px;justify-items:start}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;font-size:13px;color:var(--silver-2);letter-spacing:.02em}
+.eyebrow i{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#fff,#aeb6c8);color:#0b1226;font-style:normal;font-size:11px;font-weight:700}
+h1{font-size:clamp(44px,7.4vw,96px);line-height:.98;letter-spacing:-.045em;font-weight:700;max-width:12ch}
+.lead{font-size:clamp(17px,1.9vw,21px);color:var(--silver-2);max-width:56ch;line-height:1.55}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:100%;max-width:760px;margin-top:18px}
+.hero-stats div{padding:18px 20px;border-radius:var(--r-md)}
+.hero-stats b{display:block;font-size:15px;font-weight:600;color:#fff}
+.hero-stats span{font-size:13.5px;color:var(--silver-3)}
+
+/* sections */
+section{padding:70px 0}
+.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:720px}
+.kicker{font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-3);font-weight:600}
+h2{font-size:clamp(32px,4.4vw,54px);line-height:1.04;letter-spacing:-.035em;font-weight:700}
+.sec-head p{color:var(--silver-2);font-size:17px}
+
+.pillars{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.pillar{grid-column:span 2;border-radius:var(--r-lg);padding:28px 26px 26px;display:grid;gap:14px;align-content:start;min-height:280px;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.pillar:hover{transform:translateY(-4px)}
+.pillar.wide{grid-column:span 3}
+.pi{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.22),rgba(255,255,255,.04));box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 0 0 1px rgba(255,255,255,.14),0 10px 24px -10px rgba(0,0,0,.6)}
+.pi svg{width:26px;height:26px;stroke:#eef1f7;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pillar h3{font-size:22px;letter-spacing:-.02em;font-weight:650;color:#fff}
+.pillar p{color:var(--silver-2);font-size:15.5px}
+.pillar ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.pillar li{font-size:12.5px;color:var(--silver-1);padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+
+.focus{border-radius:var(--r-xl);padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.focus h2{font-size:clamp(28px,3.6vw,44px)}
+.focus p{color:var(--silver-2);font-size:16.5px;margin-top:14px}
+.steps{display:grid;gap:12px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:16px 18px;border-radius:var(--r-md);background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.09)}
+.step b{font-size:13px;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#0b1226;background:linear-gradient(180deg,#fff,#b6bdcd)}
+.step strong{display:block;color:#fff;font-weight:600;font-size:15.5px}
+.step span{color:var(--silver-3);font-size:14px}
+
+.contact{border-radius:var(--r-xl);padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.contact h2{font-size:clamp(28px,3.6vw,44px)}
+.contact p{color:var(--silver-2);margin-top:12px}
+.card{border-radius:var(--r-lg);padding:26px;display:grid;gap:18px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.row{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start}
+.row svg{width:22px;height:22px;stroke:var(--silver-2);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+.row small{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--silver-3);font-weight:600}
+.row address,.row a,.row div{font-style:normal;color:#fff;font-size:15.5px;line-height:1.55}
+.row a:hover{text-decoration:underline;text-underline-offset:3px}
+
+footer{padding:40px 0 60px;color:var(--silver-3);font-size:13.5px}
+.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:26px}
+
+@media (max-width:980px){
+  .pillar,.pillar.wide{grid-column:span 3}
+  .focus,.contact{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .nav ul{display:none}
+  .hero{padding:80px 0 60px}
+  .hero-stats{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
+  .pillar,.pillar.wide{grid-column:auto;min-height:0}
+    section{padding:52px 0}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .glass{background:rgba(22,30,58,.86)}
+}
+</style>
+</head>
+<body>
+<div class="sky" aria-hidden="true">
+  <div class="aurora a1"></div><div class="aurora a2"></div>
+  <div class="stars s1 twinkle"></div><div class="stars s2"></div>
+</div>
+
+<div class="wrap">
+  <header>
+    <nav class="nav glass" aria-label="Main">
+      <a class="brand" href="#top" aria-label="Verywell Tech home">
+        <span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="vg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#9aa3b8"/></linearGradient></defs><path d="M4 6l4.5 12L12 9.5 15.5 18 20 6" fill="none" stroke="url(#vg)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>VERYWELL TECH</span>
+      </a>
+      <ul>
+        <li><a href="#what-we-do">What we do</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-silver" href="#contact">Get in touch</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <span class="eyebrow glass reveal"><i>B</i>Bangkok, Thailand</span>
+      <h1 class="silver reveal">Technology, made very well.</h1>
+      <p class="lead reveal">Verywell Tech Co., Ltd. designs and builds digital products that are simple to use, sound in business and kind to the world they work in. We bring design, business thinking, innovation and modern technology together, with sustainability built in from the first sketch.</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-silver" href="#what-we-do">Explore what we do</a>
+        <a class="btn btn-glass" href="#contact">Contact us</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="glass"><b>Design-led</b><span>Clarity in every screen</span></div>
+        <div class="glass"><b>Built to last</b><span>Reliable, secure, scalable</span></div>
+        <div class="glass"><b>Made in Thailand</b><span>For Thailand and beyond</span></div>
+      </div>
+    </section>
+
+    <section id="what-we-do">
+      <div class="sec-head reveal">
+        <span class="kicker">What we do</span>
+        <h2 class="silver">Five disciplines, one way of working.</h2>
+        <p>Every product we make draws on the same five strengths, so ideas move from first sketch to real customers without losing their shape.</p>
+      </div>
+      <div class="pillars">
+        <article class="pillar glass reveal">
+          <span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4L20 9.2l-4 3.9.9 5.6L12 16l-4.9 2.7.9-5.6-4-3.9 5.4-.8z"/></svg></span>
+          <h3>Design</h3>
+          <p>Interfaces that feel obvious the first time. We design in both Thai and English, test with real people and sweat the details: type, motion, accessibility and tone.</p>
+          <ul><li>Product design</li><li>UX research</li><li>Brand systems</li></ul>
+        </article>
+        <article class="pillar glass reveal">
+          <span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span>
+          <h3>Business</h3>
+          <p>Products only matter if they work as businesses. We shape pricing, operations and growth plans alongside the product, so it can sustain itself and the people who rely on it.</p>
+          <ul><li>Business models</li><li>Market strategy</li><li>Operations</li></ul>
+        </article>
+        <article class="pillar glass reveal">
+          <span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2h5c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3z"/></svg></span>
+          <h3>Innovation</h3>
+          <p>We look for the simpler, smarter way: automating what slows people down, and finding new services where everyday life still runs on phone calls and paper.</p>
+          <ul><li>New products</li><li>Automation</li><li>Rapid prototyping</li></ul>
+        </article>
+        <article class="pillar wide glass reveal">
+          <span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 9l2 2-2 2M12 13h4"/></svg></span>
+          <h3>Technologies</h3>
+          <p>Native iOS and Android apps, web platforms and cloud services, built with modern tools and AI where it genuinely helps. Security, privacy and Thailand's data protection rules are part of the foundation, not an afterthought.</p>
+          <ul><li>Mobile apps</li><li>Web platforms</li><li>Cloud and AI</li><li>Secure payments</li></ul>
+        </article>
+        <article class="pillar wide glass reveal">
+          <span class="pi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg></span>
+          <h3>Sustainability</h3>
+          <p>Lean, efficient software uses less energy and lasts longer. We build for long life, choose efficient infrastructure, keep teams small and processes paperless, and create products that help communities use shared places, like sports venues, more fully.</p>
+          <ul><li>Efficient by design</li><li>Paperless operations</li><li>Community impact</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="focus glass reveal">
+        <div>
+          <span class="kicker">Our approach</span>
+          <h2 class="silver" style="margin-top:10px">Small team. Clear thinking. Products that keep improving.</h2>
+          <p>We stay deliberately lean and automate wherever we can, so more of our energy goes into the product and the people using it. Our current focus is a booking platform that helps players in Thailand find and book sports courts, coaches and events.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><b>1</b><div><strong>Understand</strong><span>Talk to the people who will use it and learn what slows them down.</span></div></div>
+          <div class="step"><b>2</b><div><strong>Design</strong><span>Shape a clear, beautiful experience and test it early.</span></div></div>
+          <div class="step"><b>3</b><div><strong>Build</strong><span>Engineer it to be secure, reliable and efficient.</span></div></div>
+          <div class="step"><b>4</b><div><strong>Improve</strong><span>Measure what matters and keep refining after launch.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact glass reveal">
+        <div>
+          <span class="kicker">Contact</span>
+          <h2 class="silver" style="margin-top:10px">Let's build something very well.</h2>
+          <p>For partnerships, product enquiries or customer support, reach us by email or visit our office in central Bangkok.</p>
+          <div class="hero-cta" style="margin-top:22px">
+            <a class="btn btn-silver" href="mailto:hello@verywelltech.cloud">Email us</a>
+            <a class="btn btn-glass" href="https://www.google.com/maps/search/?api=1&amp;query=Alma+Link+Building+Soi+Chidlom+Lumphini+Pathumwan+Bangkok+10330" target="_blank" rel="noopener">Open in Maps</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M14 9h1M9 13h1M14 13h1M10 21v-4h4v4"/></svg>
+            <div><small>Company</small>VERYWELL TECH CO., LTD.</div>
+          </div>
+          <div class="row">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <div><small>Office</small><address>No. 25, Alma Link Building, Level 17, Room No. 503,<br>Soi Chidlom, Lumphini, Pathumwan,<br>Bangkok, Thailand 10330</address></div>
+          </div>
+          <div class="row">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <div><small>Email</small><a href="mailto:hello@verywelltech.cloud">hello@verywelltech.cloud</a></div>
+          </div>
+          <div class="row">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><small>Hours</small>Monday to Friday, 09:00–18:00 (Bangkok time)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <span>© <span id="yr">2026</span> VERYWELL TECH CO., LTD. All rights reserved.</span>
+      <span>verywelltech.cloud · Bangkok, Thailand</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
